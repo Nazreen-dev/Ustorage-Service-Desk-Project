@@ -1,0 +1,327 @@
+Screen1 As screen:
+
+    "'Header container' As groupContainer.verticalAutoLayoutContainer":
+        Fill: =RGBA(89, 13, 13, 1)
+        Height: =96
+        LayoutDirection: =LayoutDirection.Vertical
+        LayoutMode: =LayoutMode.Auto
+        Width: =Parent.Width
+        ZIndex: =1
+
+        Icon2 As icon.Add:
+            AlignInContainer: =AlignInContainer.End
+            Color: =RGBA(255, 255, 255, 1)
+            Height: =40
+            Icon: =Icon.Add
+            OnSelect: =Navigate(Screen2)
+            PaddingBottom: =5
+            PaddingLeft: =5
+            PaddingRight: =5
+            PaddingTop: =5
+            Width: =40
+            ZIndex: =1
+
+        Label1 As label:
+            Align: =Align.Center
+            AlignInContainer: =AlignInContainer.Center
+            Color: =RGBA(255, 255, 255, 1)
+            FontWeight: =FontWeight.Bold
+            Height: =50
+            LayoutMinHeight: =70
+            LayoutMinWidth: =560
+            Size: =24
+            Text: ="U Storage Service Desk"
+            Width: =Parent.Width
+            ZIndex: =2
+
+    "'Body container' As groupContainer.manualLayoutContainer":
+        Height: =544
+        Width: =1136
+        Y: =96
+        ZIndex: =6
+
+        "'Card cont' As groupContainer.manualLayoutContainer":
+            Fill: =RGBA(255, 255, 255, 1)
+            Height: =Parent.Height*.2
+            Width: =Parent.Width
+            ZIndex: =1
+
+            Button1 As button:
+                Color: =RGBA(0, 0, 0, 1)
+                DisplayMode: =DisplayMode.View
+                Fill: =RGBA(255, 255, 255, 1)
+                Height: =100
+                Size: =20
+                Text: =CountRows(col_Tickets)&Char(10)& "All Tickets"
+                Width: =Parent.Width/5 - Parent.Width*.024
+                X: |
+                    =Parent.Width*.02
+                Y: |
+                    =Parent.Height/2- Self.Height/2
+                ZIndex: =1
+
+            Button1_1 As button:
+                Color: =RGBA(39, 113, 194, 1)
+                DisplayMode: =DisplayMode.View
+                Fill: =RGBA(255, 255, 255, 1)
+                Height: =100
+                Size: =20
+                Text: =CountRows(Filter(col_Tickets,Status="New"))&Char(10)& "New Tickets"
+                Width: =Parent.Width/5 - Parent.Width*.024
+                X: =221
+                Y: =4
+                ZIndex: =2
+
+            Button1_2 As button:
+                Color: =RGBA(255, 191, 0, 1)
+                DisplayMode: =DisplayMode.View
+                Fill: =RGBA(255, 255, 255, 1)
+                Height: =100
+                Size: =20
+                Text: =CountRows(Filter(col_Tickets,Status="In Progress"))&Char(10)& "In Progress"
+                Width: =Parent.Width/5 - Parent.Width*.024
+                X: =466
+                Y: =5
+                ZIndex: =3
+
+            Button1_3 As button:
+                Color: =RGBA(255, 0, 0, 1)
+                DisplayMode: =DisplayMode.View
+                Fill: =RGBA(255, 255, 255, 1)
+                Height: =100
+                Size: =20
+                Text: |
+                    =CountRows(Filter(col_Tickets,Status="On Hold"))&Char(10) & "On Hold"
+                Width: =Parent.Width/5 - Parent.Width*.024
+                X: =914
+                Y: |
+                    =Parent.Height/2- Self.Height/2
+                ZIndex: =4
+
+            Button1_4 As button:
+                Color: =RGBA(52, 152, 47, 1)
+                DisplayMode: =DisplayMode.View
+                Fill: =RGBA(255, 255, 255, 1)
+                Height: =100
+                Size: =20
+                Text: |
+                    =CountRows(Filter(col_Tickets,Status="Closed"))&Char(10)& "Closed"
+                Width: =Parent.Width/5 - Parent.Width*.024
+                X: =691
+                Y: |
+                    =Parent.Height/2- Self.Height/2
+                ZIndex: =5
+
+            Rectangle2 As rectangle:
+                Fill: =RGBA(106, 122, 127, 1)
+                Height: =3
+                Width: =Parent.Width
+                Y: =103.80000000000001
+                ZIndex: =6
+
+        "'Nav cont' As groupContainer.manualLayoutContainer":
+            Fill: =RGBA(255, 255, 255, 1)
+            Height: =Parent.Height-Self.Y
+            Width: =Parent.Width*.3
+            Y: ='Card cont'.Height
+            ZIndex: =2
+
+            Gallery1 As gallery.variableTemplateHeightGallery:
+                DelayItemLoading: =true
+                Height: =Parent.Height
+                Items: =col_TicketTypes
+                Layout: =Layout.Vertical
+                LoadingSpinner: =LoadingSpinner.Data
+                TemplateSize: =Button5.Height+Button5.Y
+                Width: =Parent.Width
+                Y: =5
+                ZIndex: =1
+
+                Button5 As button:
+                    Align: =Align.Left
+                    BorderThickness: =0
+                    Color: =RGBA(0, 0, 0, 1)
+                    Fill: =If(ThisItem.IsSelected,Color.AntiqueWhite,RGBA(0,0,0,0))
+                    FontWeight: =FontWeight.Normal
+                    Height: =45
+                    HoverColor: =RGBA(106, 122, 127, 1)
+                    HoverFill: =Self.Fill
+                    OnSelect: =Set(varCurrentStatus,ThisItem.Status)
+                    PaddingLeft: =20
+                    PressedFill: =
+                    RadiusBottomLeft: =0
+                    RadiusBottomRight: =0
+                    RadiusTopLeft: =0
+                    RadiusTopRight: =0
+                    Size: =14
+                    Text: =ThisItem.Ticket_Type
+                    Width: =Parent.Width
+                    X: =-2
+                    ZIndex: =1
+
+                Icon1 As icon.ArrowRight:
+                    Color: =RGBA(106, 122, 127, 1)
+                    FocusedBorderThickness: =0
+                    Height: =Parent.TemplateHeight-10
+                    Icon: =Icon.ChevronRight
+                    OnSelect: =Select(Parent)
+                    PaddingBottom: =10
+                    PaddingLeft: =10
+                    PaddingRight: =10
+                    PaddingTop: =10
+                    Width: =50
+                    X: =280
+                    Y: = Button5.Height/2-Self.Height/2
+                    ZIndex: =2
+
+                Rectangle5 As rectangle:
+                    DisplayMode: =DisplayMode.View
+                    Fill: =RGBA(106, 122, 127, 1)
+                    Height: =2
+                    OnSelect: =Select(Parent)
+                    Width: =Parent.Width
+                    X: =-2
+                    Y: =Parent.TemplateHeight-Self.Height
+                    ZIndex: =3
+
+        "'Gallery Cont' As groupContainer.manualLayoutContainer":
+            DropShadow: =DropShadow.None
+            Fill: =RGBA(245, 235, 230, 1)
+            Height: =Parent.Height-Self.Y
+            Width: =Parent.Width*.7
+            X: ='Nav cont'.Width
+            Y: ='Card cont'.Height
+            ZIndex: =3
+
+            Gallery3 As gallery.variableTemplateHeightGallery:
+                BorderThickness: =1
+                DelayItemLoading: =true
+                Fill: =RGBA(235, 232, 230, 1)
+                Height: =Parent.Height
+                Items: |-
+                    =Switch(varCurrentStatus,
+                    "All",col_Tickets,
+                    "New",Filter(col_Tickets,Status=varCurrentStatus),
+                    "In Progress",Filter(col_Tickets,Status=varCurrentStatus),
+                    "On Hold",Filter(col_Tickets,Status=varCurrentStatus),
+                    "Closed",Filter(col_Tickets,Status=varCurrentStatus),
+                    "Other",Filter(col_Tickets, Abs(DateDiff(Now(),Date_Created)) > 3),
+                    "Opened Today",Filter(col_Tickets, Abs(DateDiff(Now(),Date_Created)) = 0),
+                    "Closed Today",Filter(col_Tickets, Abs(DateDiff(Now(),Date_Closed)) = 0)
+                    )
+                Layout: =Layout.Vertical
+                LoadingSpinner: =LoadingSpinner.Data
+                TemplatePadding: =0
+                TemplateSize: =HtmlText1.Height+HtmlText1.Y
+                Width: =Parent.Width
+                ZIndex: =1
+
+                Label2 As label:
+                    Color: =RGBA(106, 122, 127, 1)
+                    Fill: =RGBA(232, 231, 230, 1)
+                    Height: =29
+                    OnSelect: =Select(Parent)
+                    PaddingLeft: =20
+                    Size: =10
+                    Text: |-
+                        ="Ticket ID: " &ThisItem.ID
+                    Width: =143
+                    ZIndex: =1
+
+                Label2_1 As label:
+                    Color: =RGBA(106, 122, 127, 1)
+                    Fill: =RGBA(232, 231, 230, 1)
+                    Height: =29
+                    OnSelect: =Select(Parent)
+                    Size: =10
+                    Text: |-
+                        ="Priority: " &ThisItem.Priority
+                    Width: =109
+                    X: =375
+                    ZIndex: =2
+
+                Label2_2 As label:
+                    Color: =RGBA(106, 122, 127, 1)
+                    Fill: =RGBA(232, 231, 230, 1)
+                    Height: =29
+                    OnSelect: =Select(Parent)
+                    Size: =10
+                    Text: |-
+                        ="Created On: "& Text(ThisItem.Date_Created,DateTimeFormat.ShortDate)
+                    Width: =230
+                    X: =542
+                    ZIndex: =3
+
+                Label2_3 As label:
+                    Color: =RGBA(106, 122, 127, 1)
+                    Fill: =RGBA(232, 231, 230, 1)
+                    Height: =29
+                    OnSelect: =Select(Parent)
+                    Size: =10
+                    Text: |-
+                        ="Created By: " &ThisItem.Owner
+                    Width: =232
+                    X: =143
+                    ZIndex: =4
+
+                Label3 As label:
+                    FontWeight: =FontWeight.Semibold
+                    OnSelect: =Select(Parent)
+                    PaddingLeft: =20
+                    Size: =18
+                    Text: =ThisItem.Subject
+                    Width: =Parent.Width
+                    Y: =40
+                    ZIndex: =5
+
+                Label3_1 As label:
+                    Fill: =RGBA(240, 230, 223, 1)
+                    Height: =80
+                    OnSelect: =Select(Parent)
+                    PaddingBottom: =10
+                    PaddingLeft: =15
+                    PaddingTop: =10
+                    Size: =14
+                    Text: =ThisItem.Description
+                    Width: =Parent.Width-40
+                    X: =20
+                    Y: =95
+                    ZIndex: =6
+
+                HtmlText1 As htmlViewer:
+                    HtmlText: |-
+                        ="Assigned to :<b>" & ThisItem.Assigned_To & "</b> "
+                    OnSelect: =Select(Parent)
+                    PaddingLeft: =20
+                    Size: =14
+                    Width: =Parent.Width
+                    Y: =177
+                    ZIndex: =7
+
+                Rectangle1 As rectangle:
+                    Fill: =Switch(ThisItem.Status,"New",RGBA(0,134,208,1),"In Progress",RGBA(255,191,0,1),"Closed",RGBA(54,176,75,1),"On Hold",Color.Red)
+                    Height: =Parent.TemplateHeight-Self.Y*2
+                    OnSelect: =Select(Parent)
+                    Width: =5
+                    ZIndex: =8
+
+                Rectangle6 As rectangle:
+                    Fill: =RGBA(106, 122, 127, 1)
+                    Height: =1
+                    OnSelect: =Select(Parent)
+                    Width: =Parent.Width
+                    Y: =Parent.TemplateHeight
+                    ZIndex: =9
+
+                Icon3 As icon.ChevronRight:
+                    Height: =26
+                    Icon: =Icon.ChevronRight
+                    OnSelect: |-
+                        =Set(varID,ThisItem.ID) ;
+                        Set(varBY,ThisItem.Owner) ;Set(varDateCreated,ThisItem.Date_Created) ;Set(varDateClosed,ThisItem.Date_Closed) ;Set(varPriority,ThisItem.Priority) ;Set(varDesc,ThisItem.Description) ;Set(varSub,ThisItem.Subject) ;Set(varStatus,ThisItem.Status) ;Set(varDep,ThisItem.Department) ;Set(varAssignedTo,ThisItem.Assigned_To) ;
+                        Navigate(Screen3,ScreenTransition.Fade)
+                    Width: =40.19999999999993
+                    X: =734
+                    Y: =54
+                    ZIndex: =10
+

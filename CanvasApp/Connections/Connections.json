@@ -1,0 +1,119 @@
+{
+  "5600db52-2b7a-418d-ba9b-ae3b598095f1": {
+    "appActions": [],
+    "connectionRef": {
+      "apiTier": "Standard",
+      "displayName": "Microsoft Teams",
+      "iconUri": "https://connectoricons-prod.azureedge.net/releases/v1.0.1674/1.0.1674.3602/teams/icon.png",
+      "id": "/providers/microsoft.powerapps/apis/shared_teams",
+      "parameterHints": {},
+      "parameterHintsV2": {}
+    },
+    "datasets": {},
+    "dataSources": [],
+    "dependencies": {},
+    "dependents": [
+      "cc026e0c-1a64-4324-98a8-c72b3845008c"
+    ],
+    "id": "5600db52-2b7a-418d-ba9b-ae3b598095f1"
+  },
+  "a8edfaca-6705-4a11-878d-c000fa48702c": {
+    "appActions": [],
+    "connectionRef": {
+      "apiTier": "Standard",
+      "displayName": "SharePoint",
+      "iconUri": "https://connectoricons-prod.azureedge.net/releases/v1.0.1676/1.0.1676.3617/sharepointonline/icon.png",
+      "id": "/providers/microsoft.powerapps/apis/shared_sharepointonline",
+      "parameterHints": {},
+      "parameterHintsV2": {}
+    },
+    "datasets": {},
+    "dataSources": [],
+    "dependencies": {},
+    "dependents": [
+      "cc026e0c-1a64-4324-98a8-c72b3845008c"
+    ],
+    "id": "a8edfaca-6705-4a11-878d-c000fa48702c"
+  },
+  "cc026e0c-1a64-4324-98a8-c72b3845008c": {
+    "appActions": [
+      "Run"
+    ],
+    "connectionRef": {
+      "apiTier": "Standard",
+      "displayName": "Logic flows",
+      "iconUri": "https://connectoricons-prod.azureedge.net/releases/v1.0.1664/1.0.1664.3477/logicflows/icon.png",
+      "id": "/providers/microsoft.powerapps/apis/shared_logicflows",
+      "parameterHints": {
+        "5600db52-2b7a-418d-ba9b-ae3b598095f1": {
+          "value": "shared_teams_1"
+        },
+        "a8edfaca-6705-4a11-878d-c000fa48702c": {
+          "value": "shared_sharepointonline_2"
+        },
+        "workflowDisplayName": {
+          "value": "Add an item to SharePoint and send an Adaptive Card in Teams"
+        },
+        "workflowEntityId": {
+          "value": "cda984be-76cc-ee11-9079-6045bd40201c"
+        },
+        "workflowName": {
+          "value": "1bee008e-7937-2b0b-230d-2b75e620e0d4"
+        }
+      },
+      "parameterHintsV2": {
+        "shared_sharepointonline_2": {
+          "value": "a8edfaca-6705-4a11-878d-c000fa48702c"
+        },
+        "shared_teams_1": {
+          "value": "5600db52-2b7a-418d-ba9b-ae3b598095f1"
+        },
+        "workflowDisplayName": {
+          "value": "Add an item to SharePoint and send an Adaptive Card in Teams"
+        },
+        "workflowEntityId": {
+          "value": "cda984be-76cc-ee11-9079-6045bd40201c"
+        },
+        "workflowName": {
+          "value": "1bee008e-7937-2b0b-230d-2b75e620e0d4"
+        }
+      }
+    },
+    "datasets": {},
+    "dataSources": [
+      "AddanitemtoSharePointandsendanAdaptiveCardinTeams"
+    ],
+    "dependencies": {
+      "shared_sharepointonline_2": "a8edfaca-6705-4a11-878d-c000fa48702c",
+      "shared_teams_1": "5600db52-2b7a-418d-ba9b-ae3b598095f1"
+    },
+    "dependents": [],
+    "id": "cc026e0c-1a64-4324-98a8-c72b3845008c"
+  },
+  "cfd76b1d-a218-4c7a-9994-7911db584061": {
+    "appActions": [],
+    "connectionRef": {
+      "apiTier": "Standard",
+      "displayName": "SharePoint",
+      "iconUri": "https://connectoricons-prod.azureedge.net/releases/v1.0.1676/1.0.1676.3617/sharepointonline/icon.png",
+      "id": "/providers/microsoft.powerapps/apis/shared_sharepointonline",
+      "parameterHints": {},
+      "parameterHintsV2": {}
+    },
+    "datasets": {
+      "https://d365719.sharepoint.com/sites/Nazreen'sSharepointSite": {
+        "dataSources": {
+          "High Priority Projects": {
+            "tableName": "09e42f98-afbd-43c0-8c2a-78f7f3f3b418"
+          }
+        }
+      }
+    },
+    "dataSources": [
+      "High Priority Projects"
+    ],
+    "dependencies": {},
+    "dependents": [],
+    "id": "cfd76b1d-a218-4c7a-9994-7911db584061"
+  }
+}

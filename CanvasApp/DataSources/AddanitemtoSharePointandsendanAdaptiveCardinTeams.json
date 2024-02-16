@@ -1,0 +1,10 @@
+[
+  {
+    "ApiId": "/providers/microsoft.powerapps/apis/shared_logicflows",
+    "FlowNameId": "1bee008e-7937-2b0b-230d-2b75e620e0d4",
+    "Name": "AddanitemtoSharePointandsendanAdaptiveCardinTeams",
+    "ServiceKind": "ConnectedWadl",
+    "Type": "ServiceInfo",
+    "WorkflowEntityId": "cda984be-76cc-ee11-9079-6045bd40201c"
+  }
+]

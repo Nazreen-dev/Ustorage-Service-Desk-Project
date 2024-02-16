@@ -1,0 +1,140 @@
+App As appinfo:
+    BackEnabled: =true
+    OnStart: |-
+        =ClearCollect(
+            col_TicketTypes,
+            {
+                ID: 1,
+                Ticket_Type: "All Tickets",
+                Status: "All"
+            },
+            {
+                ID: 1,
+                Ticket_Type: "New Tickets",
+                Status: "New"
+            },
+            {
+                ID: 1,
+                Ticket_Type: "Tickets in Progress",
+                Status: "In Progress"
+            },
+            {
+                ID: 1,
+                Ticket_Type: "Tickets on Hold",
+                Status: "On Hold"
+            },
+            {
+                ID: 1,
+                Ticket_Type: "Tickets Closed",
+                Status: "Closed"
+            },
+            {
+                ID: 1,
+                Ticket_Type: "Tickets older than 3 days",
+                Status: "Other"
+            },
+            {
+                ID: 1,
+                Ticket_Type: "Tickets opened today",
+                Status: "Opened Today"
+            },
+            {
+                ID: 1,
+                Ticket_Type: "Tickets closed today",
+                Status: "Closed Today"
+            }
+        );
+        ClearCollect(
+            col_Tickets,
+            {
+                ID: 1,
+                Department: "IT",
+                Assigned_To: "Mansoor",
+                Comment: "",
+                Subject: "Wifi not working",
+                Description: "Wifi Issue, resolve as soon as possible",
+                Status: "In Progress",
+                Priority: "High",
+                Date_Created: DateValue("08/23/2023"),
+                Date_Closed: DateValue(Blank()),
+                Owner: "Mark"
+            },
+            {
+                ID: 2,
+                Department: "IT",
+                Assigned_To: "Khaleel",
+                Comment: "",
+                Subject: "Download Power BI software",
+                Description: "Unable to download Power BI software from IT store",
+                Status: "New",
+                Priority: "Low",
+                Date_Created: DateValue("08/24/2023"),
+                Date_Closed: DateValue(Blank()),
+                Owner: "Ravi"
+            },
+            {
+                ID: 3,
+                Department: "IT",
+                Assigned_To: "Jasnim",
+                Comment: "",
+                Subject: "Not able to send mails",
+                Description: "The wireless network seems to be down in Building 1. Can't access web, intranet, or email. ",
+                Status: "In Progress",
+                Priority: "Medium",
+                Date_Created: DateValue("08/12/2023"),
+                Date_Closed: DateValue(Blank()),
+                Owner: "Sanju"
+            },
+            {
+                ID: 4,
+                Department: "IT",
+                Assigned_To: "Kafeel",
+                Comment: "",
+                Subject: "Certificate has expired",
+                Description: "How to I fix the expired certificate message that keeps popping up?",
+                Status: "New",
+                Priority: "Low",
+                Date_Created: DateValue("08/20/2023"),
+                Date_Closed: DateValue(Blank()),
+                Owner: "Eva"
+            },
+            {
+                ID: 5,
+                Department: "Facilities",
+                Assigned_To: "Al Kuwaiti",
+                Comment: "",
+                Subject: "Stand up desks in marketing",
+                Description: "We'd like to swap out all six desks for standing desks and will need new chairs, too.1",
+                Status: "New",
+                Priority: "High",
+                Date_Created: DateValue("08/25/2023"),
+                Date_Closed: DateValue(Blank()),
+                Owner: "Ivy"
+            },
+            {
+                ID: 6,
+                Department: "HR",
+                Assigned_To: "",
+                Comment: "",
+                Subject: "Need assistance in filling ITR",
+                Description: "Need Guidance of HR members in filling ITR",
+                Status: "New",
+                Priority: "Low",
+                Date_Created: DateValue("08/23/2023"),
+                Date_Closed: DateValue(Blank()),
+                Owner: "Larry"
+            }
+        );
+        Set(
+            varCurrentStatus,
+            "All"
+        )
+    Theme: =PowerAppsTheme
+
+    Host As hostControl.DefaultHostControlVariant:
+        OnCancel: =false
+        OnEdit: =false
+        OnNew: =false
+        OnSave: =false
+        OnView: =false
+

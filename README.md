@@ -2,7 +2,9 @@
 Repo for storing my passion project in D365
 
 This is a Canvas App for an IT service desk, created from a blank canvas.
-Functionalities: View, Create  and Update tickets. Integrated with Sharepoint list as data source.
+
+Functionalities: View, Create  and Update tickets. Send an adaptive card in teams when a new ticket is created.
+Integrated with Sharepoint list as data source.
 
 Dashboard 
 ![image](https://github.com/Nazreen-dev/Ustorage-Service-Desk-Project/assets/160206062/dc8d7599-e24c-4df6-b82a-4c2dc88c7fe9)

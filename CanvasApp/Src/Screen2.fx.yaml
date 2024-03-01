@@ -243,13 +243,7 @@ Screen2 As screen:
                 }
             ));*/
             
-            /*DateTimeFormat(Now());
-            DateTimeFormat.LongDate(Now());
-            DateTimeFormat.LongDateTime(Now());
-            DateTimeFormat.ShortDate(Now());
-            DateTimeFormat.ShortDateTime(Now());
-            FormatDate(Now());
-            */AddanitemtoSharePointandsendanAdaptiveCardinTeams.Run(TextInput1.Text,TextInput1_1.Text,Dropdown1_1.Selected.Value,Last(col_Tickets).ID,"New",Text(Today(), "[$-en-US]yyyy-mm-dd")
+            AddanitemtoSharePointandsendanAdaptiveCardinTeams.Run(TextInput1.Text,TextInput1_1.Text,Dropdown1_1.Selected.Value,Last(col_Tickets).ID,"New",Text(Today(), "[$-en-US]yyyy-mm-dd")
             ,"New Record");
         Size: =24
         Text: ="Submit Ticket"
